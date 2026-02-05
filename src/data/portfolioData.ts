@@ -2,6 +2,7 @@ import { Project, Experience, SkillCategory, SocialLink } from '../types/index';
 import movie from '../img/movie.jpeg';
 import card from '../img/card.jpeg'
 import meteo from '../img/meteo.jpeg'
+import cms from '../img/cms.webp'
 
 export const projects: Project[] = [
   
@@ -51,7 +52,7 @@ export const projects: Project[] = [
     title: 'Mini CMS',
     description: 'Content Management System for managing content of a website',
     longDescription: 'A sophisticated analytics platform providing real-time insights into user behavior, performance metrics, and business KPIs with interactive visualizations and customizable reports.',
-    image: 'https://images.pexels.com/photos/4162481/pexels-photo-4162481.jpeg?auto=compress&cs=tinysrgb&w=800',
+    image: `${cms}`,
     tags: ['Laravel', 'Sqlite', 'Tailwind', 'CKEditor','Herd'],
     // liveUrl: 'https://example.com',
     githubUrl: 'https://github.com',
