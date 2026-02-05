@@ -95,19 +95,19 @@ export default function Contact() {
                 {
                   icon: Mail,
                   label: 'Email',
-                  value: 'hello@example.com',
-                  href: 'mailto:hello@example.com',
+                  value: 'abdellah.chahdi.03@gmail.com',
+                  href: 'mailto:abdellah.chahdi.03@gmail.com',
                 },
                 {
                   icon: Phone,
                   label: 'Phone',
-                  value: '+1 (234) 567-890',
-                  href: 'tel:+1234567890',
+                  value: '+212 688 967 390',
+                  href: 'tel:+212688967390',
                 },
                 {
                   icon: MapPin,
                   label: 'Location',
-                  value: 'San Francisco, CA',
+                  value: 'Sale, Morocco',
                   href: '#',
                 },
               ].map((contact, index) => (
@@ -208,7 +208,7 @@ export default function Contact() {
                   className={`w-full px-4 py-3 border rounded-lg bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 resize-none ${
                     errors.message ? 'border-red-500' : 'border-slate-300 dark:border-slate-700'
                   }`}
-                  placeholder="Tell me about your project..."
+                  placeholder="Your message..."
                   whileFocus={{ scale: 1.01 }}
                 />
                 {errors.message && <p className="text-red-500 text-sm mt-1">{errors.message}</p>}

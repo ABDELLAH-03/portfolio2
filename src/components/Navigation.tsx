@@ -21,6 +21,7 @@ export default function Navigation() {
     { href: '#skills', label: 'Skills' },
     { href: '#projects', label: 'Projects' },
     { href: '#experience', label: 'Experience' },
+    { href: '#certifications', label: 'Certifications' },
     { href: '#contact', label: 'Contact' },
   ];
 
@@ -42,7 +43,7 @@ export default function Navigation() {
             className="text-2xl font-bold bg-gradient-to-r from-emerald-600 to-emerald-500 bg-clip-text text-transparent"
             whileHover={{ scale: 1.05 }}
           >
-            JD
+            AC
           </motion.a>
 
           <div className="hidden md:flex gap-8 items-center">

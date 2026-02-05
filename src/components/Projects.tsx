@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { projects } from '../data/portfolioData';
 import AnimatedCard from './ui/AnimatedCard';
+import movie from '../img/movie.jpeg'
 
 export default function Projects() {
   const [expandedId, setExpandedId] = useState<string | null>(null);

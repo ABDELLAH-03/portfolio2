@@ -2,6 +2,8 @@ import { ArrowDown, Github, Linkedin, Mail, Twitter } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { socialLinks } from '../data/portfolioData';
 import Button from './ui/Button';
+import profileimg from '../img/profile.png';
+import cv from '../CV.pdf';
 
 const iconMap: Record<string, React.ComponentType<{ size?: number; className?: string }>> = {
   Github,
@@ -50,30 +52,61 @@ export default function Hero() {
 
       <div className="relative max-w-7xl mx-auto px-6 py-20 text-center">
         <motion.div variants={container} initial="hidden" animate="show" className="space-y-8">
-          <motion.div variants={item}>
+          {/* <motion.div variants={item}>
             <span className="inline-block px-4 py-2 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-400 rounded-full text-sm font-semibold mb-4">
-              Welcome to my portfolio
+              Welcome to my portfolio+img
             </span>
+          </motion.div> */}
+          <motion.div
+            variants={item}
+            className="flex justify-center mb-6"
+          >
+            <div className="relative">
+              {/* Glow background */}
+              <div className="absolute inset-0 rounded-full bg-cyan-400/30 blur-xl scale-110" />
+
+              {/* Border ring */}
+              <div className="relative w-40 h-40 rounded-full bg-gradient-to-r from-emerald-300 to-green-700 p-1">
+                <div className="w-full h-full rounded-full bg-slate-900 flex items-center justify-center">
+                  <img
+                    src={profileimg}
+                    alt="Profile"
+                    className="w-full h-full rounded-full object-cover"
+                  />
+                </div>
+              </div>
+            </div>
           </motion.div>
+
+
 
           <motion.h1
             variants={item}
-            className="text-6xl md:text-8xl font-bold tracking-tight text-slate-900 dark:text-white"
+            className="text-6xl md:text-6xl font-bold tracking-tight text-slate-900 dark:text-white"
           >
-            Full Stack <span className="bg-gradient-to-r from-emerald-600 to-emerald-500 dark:from-emerald-400 dark:to-emerald-300 bg-clip-text text-transparent">Developer</span>
+            Hi, I'm Abdellah Chahdi — Crafting Scalable <span className="bg-gradient-to-r from-emerald-600 to-emerald-500 dark:from-emerald-400 dark:to-emerald-300 bg-clip-text text-transparent">& Modern Web Solutions</span>
           </motion.h1>
 
           <motion.p variants={item} className="text-xl md:text-2xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto">
-            Crafting elegant digital experiences with modern technologies. I specialize in building scalable, performant applications that solve real-world problems.
-          </motion.p>
+          Passionate about building robust, responsive, and high-performance full-stack web applications. I enjoy transforming ideas into clean, efficient, and user-focused digital experiences.          </motion.p>
 
           <motion.div variants={item} className="flex flex-col sm:flex-row justify-center gap-4">
-            <Button onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
-              Start a Project
-            </Button>
+            <a
+              href={cv}
+              download
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Button>
+                Download CV
+              </Button>
+            </a>
+
             <Button
               variant="outline"
-              onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
+              onClick={() =>
+                document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })
+              }
             >
               View My Work
             </Button>

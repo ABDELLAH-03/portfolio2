@@ -25,17 +25,47 @@ export default function Skills() {
               </h3>
               <div className="flex flex-wrap gap-3 mt-6">
                 {skillGroup.items.map((skill, skillIndex) => (
+                  // <motion.span
+                  //   key={skill}
+                  //   initial={{ opacity: 0, scale: 0.8 }}
+                  //   whileInView={{ opacity: 1, scale: 1 }}
+                  //   whileHover={{ scale: 1.05, y: -2 }}
+                  //   transition={{ delay: skillIndex * 0.05 }}
+                  //   viewport={{ once: true }}
+                  //   className="px-4 py-2 bg-emerald-50 dark:bg-emerald-900/20 text-emerald-700 dark:text-emerald-400 rounded-full text-sm font-medium hover:bg-emerald-100 dark:hover:bg-emerald-900/40 transition-colors duration-200 border border-emerald-200 dark:border-emerald-800"
+                  // >
+                  //   {skill}
+                  // </motion.span>
                   <motion.span
-                    key={skill}
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    whileHover={{ scale: 1.05, y: -2 }}
-                    transition={{ delay: skillIndex * 0.05 }}
-                    viewport={{ once: true }}
-                    className="px-4 py-2 bg-emerald-50 dark:bg-emerald-900/20 text-emerald-700 dark:text-emerald-400 rounded-full text-sm font-medium hover:bg-emerald-100 dark:hover:bg-emerald-900/40 transition-colors duration-200 border border-emerald-200 dark:border-emerald-800"
-                  >
-                    {skill}
-                  </motion.span>
+  key={skill}
+  initial={{ opacity: 0, scale: 0.8 }}
+  whileInView={{ opacity: 1, scale: 1 }}
+  whileHover={{ scale: 1.05, y: -2 }}
+  transition={{ delay: skillIndex * 0.05 }}
+  viewport={{ once: true }}
+  className="
+    px-4 py-2
+    rounded-full
+    text-sm font-medium
+    transition-all duration-200
+
+    bg-transparent
+    text-slate-600 dark:text-slate-300
+    border border-transparent
+   border-slate-400 
+    dark:bg-slate-700
+
+    hover:bg-emerald-50
+    dark:hover:bg-emerald-900/20
+    hover:text-emerald-700
+    dark:hover:text-emerald-400
+    hover:border-emerald-200
+    dark:hover:border-emerald-800
+  "
+>
+  {skill}
+</motion.span>
+
                 ))}
               </div>
             </AnimatedCard>
