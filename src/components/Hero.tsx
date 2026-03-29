@@ -98,7 +98,7 @@ export default function Hero() {
               rel="noopener noreferrer"
             >
               <Button>
-                Download CV
+                Telecharger CV
               </Button>
             </a>
 
