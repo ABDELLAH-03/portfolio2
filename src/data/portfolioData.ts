@@ -3,6 +3,7 @@ import movie from '../img/movie.jpeg';
 import card from '../img/card.jpeg'
 import meteo from '../img/meteo.jpeg'
 import cms from '../img/cms.webp'
+import store from '../img/store.jpeg'
 import htmlcssjs from '../img/htmlcssjs.ico'
 import carrer from '../img/carreer.ico'
 import uiux from '../img/uiux.ico'
@@ -49,6 +50,15 @@ export const projects: Project[] = [
     longDescription: 'A sophisticated analytics platform providing real-time insights into user behavior, performance metrics, and business KPIs with interactive visualizations and customizable reports.',
     image: `${cms}`,
     tags: ['Laravel', 'Sqlite', 'Tailwind', 'CKEditor', 'Herd'],
+    githubUrl: 'https://github.com',
+  },
+  {
+    id: '5',
+    title: 'E-commerce Store',
+    description: 'Full-featured online store for browsing products, managing a cart, and placing orders securely.',
+    longDescription: 'A complete e-commerce platform that allows users to explore product catalogs, filter and search items, manage a shopping cart, and complete secure checkout. The system includes user authentication, order management, and an admin dashboard for handling products, categories, and customer orders. Built with a focus on performance, usability, and scalable architecture.',
+    image: `${store}`,
+    tags: ['Django', 'Sqlite', 'Tailwind', 'React', 'JWT', 'REST API'],
     githubUrl: 'https://github.com',
   },
 ];
