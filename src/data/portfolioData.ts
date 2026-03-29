@@ -7,6 +7,10 @@ import htmlcssjs from '../img/htmlcssjs.ico'
 import carrer from '../img/carreer.ico'
 import uiux from '../img/uiux.ico'
 import ia from '../img/ia.ico'
+import htmlcssjsp from '../certificates/htmlcssjs.pdf'
+import carrerp from '../certificates/carrer.pdf'
+import uiuxp from '../certificates/uiux.pdf'
+import iap from '../certificates/Ia.pdf'
 export const projects: Project[] = [
 
   {
@@ -52,32 +56,31 @@ export const projects: Project[] = [
 export const certifications = [
   {
     id: '1',
-    title: ' Web development Html,Css,Js  Certification',
+    title: ' Web development Html,Css,Js',
     organization: 'Orange',
     icon: `${htmlcssjs}`,
-    credentialUrl: '#',
+    credentialUrl: `${htmlcssjsp}` ,
   },
   {
     id: '2',
     title: 'Career Management Essentials',
     organization: 'IBM',
     icon: `${carrer}`,
-
-    credentialUrl: '#',
+    credentialUrl: `${carrerp}`,
   },
   {
     id: '3',
     title: 'UI/UX Design',
     organization: 'Orange',
     icon: `${uiux}`,
-    credentialUrl: '#',
+    credentialUrl: `${uiuxp}`,
   },
   {
     id: '4',
     title: 'Artificial Intelligence Fundamentals',
     organization: 'IBM',
     icon: `${ia}`,
-    credentialUrl: '#',
+    credentialUrl: `${iap}`,
   },
 ];
 

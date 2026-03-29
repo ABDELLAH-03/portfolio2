@@ -1,4 +1,4 @@
-import { ExternalLink, CheckCircle } from 'lucide-react';
+import { ExternalLink, CheckCircle,Award } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { certifications } from '../data/portfolioData';
 
@@ -43,14 +43,18 @@ export default function Certifications() {
                             <div className="flex items-center justify-between mb-4">
 
                                 {/* ICON */}
+
                                 <div className="p-3 rounded-xl bg-emerald-100 dark:bg-emerald-900/30 flex items-center justify-center">
-                                    <img
+                                                                    
+                                                                    <img
                                         src={cert.icon}
                                         alt={cert.title}
                                         className="w-10 h-10 object-contain"
                                     />
                                 </div>
-
+                                <div className="p-3 rounded-xl bg-gradient-to-br from-purple-500 to-indigo-500">
+                                    <Award className="text-white" size={25} />
+                                </div>
                                 {/* STATUS */}
                                 <div className="p-2 rounded-lg bg-emerald-100 dark:bg-emerald-900/30">
                                     <CheckCircle className="text-emerald-600 dark:text-emerald-400" size={18} />
