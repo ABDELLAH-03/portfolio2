@@ -50,7 +50,6 @@ export default function Contact() {
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
     if (!validateForm()) return;
 
     setIsSubmitting(true);
@@ -65,8 +64,13 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-24 bg-white dark:bg-slate-950 transition-colors duration-200">
+    <section
+      id="contact"
+      className="py-24 bg-slate-50 dark:bg-slate-900 transition-colors duration-200"
+    >
       <div className="max-w-7xl mx-auto px-6">
+
+        {/* HEADER */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -74,20 +78,27 @@ export default function Contact() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-5xl md:text-6xl font-bold text-slate-900 dark:text-white mb-4">Get In Touch</h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-emerald-600 to-emerald-500 mx-auto"></div>
+          <h2 className="text-5xl md:text-6xl font-bold text-slate-900 dark:text-white mb-4">
+            Get In Touch
+          </h2>
+          <div className="w-24 h-1 bg-gradient-to-r from-emerald-600 to-emerald-400 mx-auto rounded-full" />
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-12">
+
+          {/* LEFT SIDE */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h3 className="text-3xl font-bold text-slate-900 dark:text-white mb-6">Let's Work Together</h3>
+            <h3 className="text-3xl font-bold text-slate-900 dark:text-white mb-6">
+              Let's Work Together
+            </h3>
+
             <p className="text-lg text-slate-600 dark:text-slate-400 mb-12 leading-relaxed">
-              I'm always interested in hearing about new projects and opportunities. Whether you have a question or just want to say hi, feel free to reach out!
+              I'm always interested in new projects and opportunities. Whether you have a question or just want to say hi, feel free to reach out!
             </p>
 
             <div className="space-y-6">
@@ -120,11 +131,14 @@ export default function Contact() {
                   viewport={{ once: true }}
                   className="flex items-start gap-4 hover:translate-x-2 transition-transform duration-200"
                 >
-                  <div className="w-14 h-14 bg-emerald-100 dark:bg-emerald-900/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <div className="w-14 h-14 bg-emerald-100 dark:bg-emerald-900/30 rounded-lg flex items-center justify-center">
                     <contact.icon className="text-emerald-600 dark:text-emerald-400" size={24} />
                   </div>
+
                   <div>
-                    <h4 className="font-semibold text-slate-900 dark:text-white mb-1">{contact.label}</h4>
+                    <h4 className="font-semibold text-slate-900 dark:text-white mb-1">
+                      {contact.label}
+                    </h4>
                     <p className="text-slate-600 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors duration-200">
                       {contact.value}
                     </p>
@@ -134,99 +148,89 @@ export default function Contact() {
             </div>
           </motion.div>
 
+          {/* RIGHT SIDE (FORM) */}
           <motion.div
             initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <motion.form onSubmit={handleSubmit} className="space-y-6">
+            <motion.form
+              onSubmit={handleSubmit}
+              className="space-y-6 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 p-8 rounded-2xl shadow-lg dark:shadow-slate-900/50"
+            >
+
+              {/* SUCCESS MESSAGE */}
               {submitted && (
                 <motion.div
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="p-4 bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-200 dark:border-emerald-800 rounded-lg text-emerald-700 dark:text-emerald-400 text-center font-medium"
+                  className="p-4 bg-emerald-100 dark:bg-emerald-900/30 border border-emerald-300 dark:border-emerald-800 rounded-lg text-emerald-700 dark:text-emerald-400 text-center font-medium"
                 >
                   Thank you! I'll get back to you soon.
                 </motion.div>
               )}
 
+              {/* NAME */}
               <div>
-                <label htmlFor="name" className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
+                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
                   Name
                 </label>
                 <motion.input
                   type="text"
-                  id="name"
                   value={formData.name}
                   onChange={(e) => {
                     setFormData({ ...formData, name: e.target.value });
                     if (errors.name) setErrors({ ...errors, name: undefined });
                   }}
-                  className={`w-full px-4 py-3 border rounded-lg bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 ${
-                    errors.name ? 'border-red-500' : 'border-slate-300 dark:border-slate-700'
-                  }`}
+                  className={`w-full px-4 py-3 border rounded-lg bg-slate-50 dark:bg-slate-700 text-slate-900 dark:text-white focus:ring-2 focus:ring-emerald-500 ${errors.name ? 'border-red-500' : 'border-slate-300 dark:border-slate-600'
+                    }`}
                   placeholder="Your name"
-                  whileFocus={{ scale: 1.01 }}
                 />
                 {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
               </div>
 
+              {/* EMAIL */}
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
+                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
                   Email
                 </label>
                 <motion.input
                   type="email"
-                  id="email"
                   value={formData.email}
                   onChange={(e) => {
                     setFormData({ ...formData, email: e.target.value });
                     if (errors.email) setErrors({ ...errors, email: undefined });
                   }}
-                  className={`w-full px-4 py-3 border rounded-lg bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 ${
-                    errors.email ? 'border-red-500' : 'border-slate-300 dark:border-slate-700'
-                  }`}
+                  className={`w-full px-4 py-3 border rounded-lg bg-slate-50 dark:bg-slate-700 text-slate-900 dark:text-white focus:ring-2 focus:ring-emerald-500 ${errors.email ? 'border-red-500' : 'border-slate-300 dark:border-slate-600'
+                    }`}
                   placeholder="your.email@example.com"
-                  whileFocus={{ scale: 1.01 }}
                 />
                 {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
               </div>
 
+              {/* MESSAGE */}
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
+                <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
                   Message
                 </label>
                 <motion.textarea
-                  id="message"
+                  rows={5}
                   value={formData.message}
                   onChange={(e) => {
                     setFormData({ ...formData, message: e.target.value });
                     if (errors.message) setErrors({ ...errors, message: undefined });
                   }}
-                  rows={5}
-                  className={`w-full px-4 py-3 border rounded-lg bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 resize-none ${
-                    errors.message ? 'border-red-500' : 'border-slate-300 dark:border-slate-700'
-                  }`}
+                  className={`w-full px-4 py-3 border rounded-lg bg-slate-50 dark:bg-slate-700 text-slate-900 dark:text-white focus:ring-2 focus:ring-emerald-500 resize-none ${errors.message ? 'border-red-500' : 'border-slate-300 dark:border-slate-600'
+                    }`}
                   placeholder="Your message..."
-                  whileFocus={{ scale: 1.01 }}
                 />
                 {errors.message && <p className="text-red-500 text-sm mt-1">{errors.message}</p>}
               </div>
 
+              {/* BUTTON */}
               <Button type="submit" disabled={isSubmitting} className="w-full">
-                {isSubmitting ? (
-                  <motion.div className="flex items-center justify-center gap-2">
-                    <motion.div
-                      animate={{ rotate: 360 }}
-                      transition={{ duration: 1, repeat: Infinity }}
-                      className="w-4 h-4 border-2 border-white border-t-transparent rounded-full"
-                    />
-                    Sending...
-                  </motion.div>
-                ) : (
-                  'Send Message'
-                )}
+                {isSubmitting ? 'Sending...' : 'Send Message'}
               </Button>
             </motion.form>
           </motion.div>
