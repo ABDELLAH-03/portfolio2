@@ -1,33 +1,17 @@
 import { motion } from 'framer-motion';
 
 export default function Footer() {
-  const currentYear = new Date().getFullYear();
-
+  const year = new Date().getFullYear();
   return (
-    <footer className="bg-slate-100 dark:bg-slate-950 text-slate-600 dark:text-slate-400 py-12 transition-colors duration-200 border-t border-slate-200 dark:border-slate-800">
+    <footer className="py-10" style={{ background:'var(--bg-secondary)', borderTop:'1px solid var(--border-subtle)' }}>
       <div className="max-w-7xl mx-auto px-6">
-
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="flex flex-col items-center justify-center text-center gap-4"
-        >
-
-          <motion.p
-            className="text-sm flex items-center gap-2"
-            whileHover={{ scale: 1.05 }}
-          >
-            © {currentYear}
-            <span className="text-emerald-600 dark:text-emerald-400 font-semibold">
-              Abdellah Chahdi
-            </span>
-            . All rights reserved.
-          </motion.p>
-
+        <motion.div initial={{ opacity:0 }} whileInView={{ opacity:1 }} viewport={{ once:true }}
+          className="flex flex-col items-center gap-3">
+          <p className="text-xl font-bold gradient-text">AC_</p>
+          <p className="text-xs" style={{ color:'var(--text-muted)' }}>
+            © {year} <span style={{ color:'var(--accent)', fontWeight:600 }}>Abdellah Chahdi</span>. All rights reserved.
+          </p>
         </motion.div>
-
       </div>
     </footer>
   );

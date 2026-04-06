@@ -1,74 +1,50 @@
 import { motion } from 'framer-motion';
 import { skills } from '../data/portfolioData';
-import AnimatedCard from './ui/AnimatedCard';
+
+const catColors: Record<string,string> = {
+  'Programming Languages':'#3b82f6','Frameworks & Libraries':'#8b5cf6',
+  'Databases & Data Systems':'#ec4899','Cloud & DevOps':'#10b981',
+  'Tools & IDEs':'#f97316','Modeling & Methodologies':'#ef4444',
+  'Backend & APIs':'#06b6d4','Web & Mobile Technologies':'#84cc16',
+};
+const catEmoji: Record<string,string> = {
+  'Programming Languages':'</>','Frameworks & Libraries':'⚛',
+  'Databases & Data Systems':'DB','Cloud & DevOps':'☁',
+  'Tools & IDEs':'IDE','Modeling & Methodologies':'UML',
+  'Backend & APIs':'API','Web & Mobile Technologies':'WEB',
+};
 
 export default function Skills() {
   return (
-    <section id="skills" className="py-24 bg-slate-50 dark:bg-slate-900 transition-colors duration-200">
+    <section id="skills" className="py-24" style={{ background:'var(--bg-primary)' }}>
       <div className="max-w-7xl mx-auto px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-5xl md:text-6xl font-bold text-slate-900 dark:text-white mb-4">Skills & Technologies</h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-emerald-600 to-emerald-500 mx-auto"></div>
+        <motion.div initial={{ opacity:0, y:20 }} whileInView={{ opacity:1, y:0 }}
+          transition={{ duration:0.6 }} viewport={{ once:true }} className="text-center mb-16">
+          <h2 className="text-5xl md:text-6xl font-bold mb-4" style={{ color:'var(--text-primary)' }}>
+            Technical <span className="gradient-text">Skills</span>
+          </h2>
+          <p className="text-sm mb-4" style={{ color:'var(--text-secondary)' }}>Technologies and tools I work with</p>
+          <div className="section-line" />
         </motion.div>
-
-        <div className="grid md:grid-cols-2 gap-8">
-          {skills.map((skillGroup, index) => (
-            <AnimatedCard key={skillGroup.category} delay={index * 0.1} className="p-8">
-              <h3 className="text-2xl font-semibold text-slate-900 dark:text-white mb-6 border-b-2 border-emerald-600 dark:border-emerald-500 pb-3 inline-block">
-                {skillGroup.category}
-              </h3>
-              <div className="flex flex-wrap gap-3 mt-6">
-                {skillGroup.items.map((skill, skillIndex) => (
-                  // <motion.span
-                  //   key={skill}
-                  //   initial={{ opacity: 0, scale: 0.8 }}
-                  //   whileInView={{ opacity: 1, scale: 1 }}
-                  //   whileHover={{ scale: 1.05, y: -2 }}
-                  //   transition={{ delay: skillIndex * 0.05 }}
-                  //   viewport={{ once: true }}
-                  //   className="px-4 py-2 bg-emerald-50 dark:bg-emerald-900/20 text-emerald-700 dark:text-emerald-400 rounded-full text-sm font-medium hover:bg-emerald-100 dark:hover:bg-emerald-900/40 transition-colors duration-200 border border-emerald-200 dark:border-emerald-800"
-                  // >
-                  //   {skill}
-                  // </motion.span>
-                  <motion.span
-  key={skill}
-  initial={{ opacity: 0, scale: 0.8 }}
-  whileInView={{ opacity: 1, scale: 1 }}
-  whileHover={{ scale: 1.05, y: -2 }}
-  transition={{ delay: skillIndex * 0.05 }}
-  viewport={{ once: true }}
-  className="
-    px-4 py-2
-    rounded-full
-    text-sm font-medium
-    transition-all duration-200
-
-    bg-transparent
-    text-slate-600 dark:text-slate-300
-    border border-transparent
-   border-slate-400 
-    dark:bg-slate-700
-
-    hover:bg-emerald-50
-    dark:hover:bg-emerald-900/20
-    hover:text-emerald-700
-    dark:hover:text-emerald-400
-    hover:border-emerald-200
-    dark:hover:border-emerald-800
-  "
->
-  {skill}
-</motion.span>
-
+        <div className="grid md:grid-cols-3 gap-5">
+          {skills.map((group, index) => (
+            <motion.div key={group.category} initial={{ opacity:0, y:20 }} whileInView={{ opacity:1, y:0 }}
+              transition={{ delay:index*0.07 }} viewport={{ once:true }}
+              className="card-terminal rounded-sm p-6">
+              <div className="flex items-center gap-3 mb-5">
+                <div className="w-10 h-10 rounded-sm flex items-center justify-center text-xs font-bold"
+                  style={{ background:catColors[group.category]+'1a', border:`1px solid ${catColors[group.category]}44`, color:catColors[group.category] }}>
+                  {catEmoji[group.category]||'//'}
+                </div>
+                <h3 className="text-sm font-bold" style={{ color:'var(--text-primary)' }}>{group.category}</h3>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {group.items.map((skill) => (
+                  <motion.span key={skill} whileHover={{ scale:1.06, y:-1 }}
+                    className="tag-pill cursor-default">{skill}</motion.span>
                 ))}
               </div>
-            </AnimatedCard>
+            </motion.div>
           ))}
         </div>
       </div>

@@ -1,98 +1,56 @@
-import { ExternalLink, CheckCircle,Award } from 'lucide-react';
+import { ExternalLink, CheckCircle, Award } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { certifications } from '../data/portfolioData';
 
 export default function Certifications() {
-    return (
-        <section
-            id="certifications"
-            className="py-24 bg-slate-50 dark:bg-slate-900 transition-colors duration-200"
-        >
-            <div className="max-w-7xl mx-auto px-6">
-
-                {/* Header */}
-                <div className="text-center mb-16">
-                    <h2 className="text-5xl md:text-6xl font-bold text-slate-900 dark:text-white mb-4">
-                        Certifications & Training
-                    </h2>
-                    <div className="w-24 h-1 bg-gradient-to-r from-emerald-600 to-emerald-400 mx-auto rounded-full mb-4" />
-                    <p className="text-slate-600 dark:text-slate-400 text-lg">
-                        Professional certifications and completed courses
-                    </p>
+  return (
+    <section id="certifications" className="py-24" style={{ background:'var(--bg-secondary)' }}>
+      <div className="max-w-7xl mx-auto px-6">
+        <motion.div initial={{ opacity:0, y:20 }} whileInView={{ opacity:1, y:0 }}
+          transition={{ duration:0.6 }} viewport={{ once:true }} className="text-center mb-16">
+          <h2 className="text-5xl md:text-6xl font-bold mb-4" style={{ color:'var(--text-primary)' }}>
+            Certifications <span className="gradient-text">&</span> Training
+          </h2>
+          <p className="text-sm mb-4" style={{ color:'var(--text-secondary)' }}>Professional certifications and completed courses</p>
+          <div className="section-line" />
+        </motion.div>
+        <div className="grid md:grid-cols-3 gap-5">
+          {certifications.map((cert, index) => (
+            <motion.div key={cert.id} initial={{ opacity:0, y:20 }} whileInView={{ opacity:1, y:0 }}
+              transition={{ delay:index*0.1 }} viewport={{ once:true }}
+              className="card-terminal rounded-sm p-6 group">
+              <div className="flex items-center justify-between mb-5">
+                <div className="p-2 rounded-sm" style={{ background:'rgba(0,255,136,0.07)', border:'1px solid var(--border-accent)' }}>
+                  <img src={cert.icon} alt={cert.title} className="w-9 h-9 object-contain" />
                 </div>
-
-                {/* Grid */}
-                <div className="grid md:grid-cols-3 gap-8">
-                    {certifications.map((cert, index) => (
-                        <motion.div
-                            key={cert.id}
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ delay: index * 0.1 }}
-                            viewport={{ once: true }}
-                            className="group relative 
-                bg-white dark:bg-slate-800
-                border border-slate-200 dark:border-slate-700
-                rounded-2xl p-6
-                shadow-lg dark:shadow-slate-900/50
-                hover:shadow-2xl hover:border-emerald-400/40
-                transition-all duration-300"
-                        >
-
-                            {/* Top section */}
-                            <div className="flex items-center justify-between mb-4">
-
-                                {/* ICON */}
-
-                                <div className="p-3 rounded-xl bg-emerald-100 dark:bg-emerald-900/30 flex items-center justify-center">
-                                                                    
-                                                                    <img
-                                        src={cert.icon}
-                                        alt={cert.title}
-                                        className="w-10 h-10 object-contain"
-                                    />
-                                </div>
-                                <div className="p-3 rounded-xl bg-gradient-to-br from-purple-500 to-indigo-500">
-                                    <Award className="text-white" size={25} />
-                                </div>
-                                {/* STATUS */}
-                                <div className="p-2 rounded-lg bg-emerald-100 dark:bg-emerald-900/30">
-                                    <CheckCircle className="text-emerald-600 dark:text-emerald-400" size={18} />
-                                </div>
-                            </div>
-
-                            {/* Title */}
-                            <h3 className="text-lg font-semibold text-slate-900 dark:text-white mb-2 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition">
-                                {cert.title}
-                            </h3>
-
-                            {/* Organization */}
-                            <div className="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400 mb-4">
-                                <CheckCircle size={14} className="text-emerald-600 dark:text-emerald-400" />
-                                {cert.organization}
-                            </div>
-
-                            {/* Button (hover only) */}
-                            {cert.credentialUrl && (
-                                <div className="mt-4 opacity-0 translate-y-3 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
-                                    <a
-                                        href={cert.credentialUrl}
-                                        target="_blank"
-                                        className="inline-flex items-center gap-2 px-4 py-2 rounded-lg 
-                      border border-emerald-400/30 
-                      text-emerald-600 dark:text-emerald-400
-                      hover:bg-emerald-100 dark:hover:bg-emerald-900/30
-                      transition"
-                                    >
-                                        <ExternalLink size={16} />
-                                        View Certificate
-                                    </a>
-                                </div>
-                            )}
-                        </motion.div>
-                    ))}
+                <div className="p-2 rounded-sm" style={{ background:'rgba(139,92,246,0.12)', border:'1px solid rgba(139,92,246,0.3)' }}>
+                  <Award style={{ color:'#8b5cf6' }} size={20} />
                 </div>
-            </div>
-        </section>
-    );
+                <div className="p-2 rounded-sm" style={{ background:'rgba(0,255,136,0.07)', border:'1px solid var(--border-accent)' }}>
+                  <CheckCircle style={{ color:'var(--accent)' }} size={16} />
+                </div>
+              </div>
+              <h3 className="text-sm font-bold mb-2 transition-colors" style={{ color:'var(--text-primary)' }}
+                onMouseEnter={(e)=>(e.currentTarget.style.color='var(--accent)')}
+                onMouseLeave={(e)=>(e.currentTarget.style.color='var(--text-primary)')}>
+                {cert.title}
+              </h3>
+              <div className="flex items-center gap-2 text-xs mb-4" style={{ color:'var(--text-muted)' }}>
+                <CheckCircle size={11} style={{ color:'var(--accent)' }} />{cert.organization}
+              </div>
+              {cert.credentialUrl && (
+                <div className="opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
+                  <a href={cert.credentialUrl} target="_blank"
+                    className="inline-flex items-center gap-2 px-3 py-1.5 rounded-sm text-xs transition-all"
+                    style={{ border:'1px solid var(--border-accent)', color:'var(--accent)', background:'rgba(0,255,136,0.05)' }}>
+                    <ExternalLink size={12} />View Certificate
+                  </a>
+                </div>
+              )}
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
 }

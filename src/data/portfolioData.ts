@@ -41,7 +41,7 @@ export const projects: Project[] = [
     longDescription: 'A real-time multiplayer card game platform powered by Node.js, Socket.io, and React, delivering seamless live gameplay, synchronized game state management, and a dynamic, responsive frontend for strategic browser-based duels.',
     image: `${card}`,
     tags: ['Node.js', 'Express.js', 'React', 'Socket.io', 'mongoDB', 'tailwindCSS', 'Postman'],
-    githubUrl: 'https://github.com',
+    githubUrl: 'https://github.com/ABDELLAH-03/game',
   },
   {
     id: '4',
@@ -50,7 +50,7 @@ export const projects: Project[] = [
     longDescription: 'A sophisticated analytics platform providing real-time insights into user behavior, performance metrics, and business KPIs with interactive visualizations and customizable reports.',
     image: `${cms}`,
     tags: ['Laravel', 'Sqlite', 'Tailwind', 'CKEditor', 'Herd'],
-    githubUrl: 'https://github.com',
+    githubUrl: 'https://github.com/ABDELLAH-03/mini-cmsH',
   },
   {
     id: '5',
@@ -59,7 +59,7 @@ export const projects: Project[] = [
     longDescription: 'A complete e-commerce platform that allows users to explore product catalogs, filter and search items, manage a shopping cart, and complete secure checkout. The system includes user authentication, order management, and an admin dashboard for handling products, categories, and customer orders. Built with a focus on performance, usability, and scalable architecture.',
     image: `${store}`,
     tags: ['Django', 'Sqlite', 'Tailwind', 'React', 'JWT', 'REST API'],
-    githubUrl: 'https://github.com',
+    githubUrl: 'https://github.com/ABDELLAH-03/marketplace',
   },
 ];
 

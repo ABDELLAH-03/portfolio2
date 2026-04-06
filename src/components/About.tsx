@@ -1,216 +1,97 @@
 import { Code2, Lightbulb, Rocket, Users, Calendar, MapPin } from 'lucide-react';
 import { motion } from 'framer-motion';
-import AnimatedCard from './ui/AnimatedCard';
+
+const highlights = [
+  { icon: Code2, title: 'Clean Code', description: 'Maintainable, scalable, documented code' },
+  { icon: Lightbulb, title: 'Problem Solver', description: 'Analytical approach to hard problems' },
+  { icon: Rocket, title: 'Performance', description: 'Optimizing for speed and efficiency' },
+  { icon: Users, title: 'Collaboration', description: 'Strong team player, clear communicator' },
+];
+const timeline = [
+  { period: 'Present', title: 'Licence Professionnelle en Développement Informatique', school: 'ISMAGI Agdal', location: 'Rabat' },
+  { period: '2021 – 2023', title: 'Diplôme Technicien Spécialisé en Développement Digital', school: 'ISTA', location: 'Rabat' },
+  { period: '2020 – 2021', title: 'Baccalauréat - Sciences de la Vie et de la Terre', school: 'Lycée Ibn El Khatib', location: 'Salé' },
+];
 
 export default function About() {
-  const highlights = [
-    {
-      icon: Code2,
-      title: 'Clean Code',
-      description: 'Writing maintainable, scalable, and well-documented code',
-    },
-    {
-      icon: Lightbulb,
-      title: 'Problem Solver',
-      description: 'Analytical approach to tackling complex technical challenges',
-    },
-    {
-      icon: Rocket,
-      title: 'Performance',
-      description: 'Optimizing applications for speed and efficiency',
-    },
-    {
-      icon: Users,
-      title: 'Collaboration',
-      description: 'Strong team player with excellent communication skills',
-    },
-  ];
-
   return (
-    <section id="about" className="py-24 bg-white dark:bg-slate-900 transition-colors duration-200">
+    <section id="about" className="py-24" style={{ background: 'var(--bg-secondary)' }}>
       <div className="max-w-7xl mx-auto px-6">
-
-        {/* HEADER */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-5xl md:text-6xl font-bold text-slate-900 dark:text-white mb-4">
-            About Me
+        <motion.div initial={{ opacity:0, y:20 }} whileInView={{ opacity:1, y:0 }}
+          transition={{ duration:0.6 }} viewport={{ once:true }} className="text-center mb-16">
+          <h2 className="text-5xl md:text-6xl font-bold mb-4" style={{ color:'var(--text-primary)' }}>
+            About <span className="gradient-text">Me</span>
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-emerald-600 to-emerald-400 mx-auto rounded-full" />
+          <p className="text-sm mb-4" style={{ color:'var(--text-secondary)' }}>Get to know more about my journey and background</p>
+          <div className="section-line" />
         </motion.div>
 
-        {/* MAIN GRID */}
-        <div className="grid md:grid-cols-2 gap-16 items-center mb-20">
-
-          {/* PROFILE */}
-          <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="space-y-6"
-          >
-            <div className="bg-white dark:bg-slate-800/70 border border-slate-200 dark:border-slate-700 rounded-2xl p-6 shadow-lg dark:shadow-slate-900/50">
-              <h3 className="text-3xl font-bold text-slate-900 dark:text-white text-center mb-4">
-                Profile
-              </h3>
-
-              <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
+        <div className="grid md:grid-cols-2 gap-16 items-start mb-20">
+          <motion.div initial={{ opacity:0, x:-40 }} whileInView={{ opacity:1, x:0 }}
+            transition={{ duration:0.6 }} viewport={{ once:true }}>
+            <div className="card-terminal rounded-sm p-8">
+              <div className="flex items-center gap-2 mb-5 pb-4" style={{ borderBottom:'1px solid var(--border-subtle)' }}>
+                <div className="w-3 h-3 rounded-full bg-red-500 opacity-60" />
+                <div className="w-3 h-3 rounded-full bg-yellow-500 opacity-60" />
+                <div className="w-3 h-3 rounded-full opacity-70" style={{ background:'var(--accent)' }} />
+                <span className="text-xs ml-2" style={{ color:'var(--text-muted)' }}>profile.md</span>
+              </div>
+              <h3 className="text-xl font-bold mb-4" style={{ color:'var(--text-primary)' }}>Profile</h3>
+              <p className="leading-relaxed mb-4 text-sm" style={{ color:'var(--text-secondary)' }}>
                 I am a passionate Web Development student, currently pursuing a Professional License at ISMAGI Agdal.
-                My journey is driven by a strong interest in building modern, scalable, and user-focused web applications.
-
-                I enjoy transforming ideas into functional digital products by combining front-end creativity with solid back-end logic.
-                Through my studies and personal projects, I’ve gained hands-on experience in full-stack web development.
-
-                Curious, detail-oriented, and motivated by continuous growth, I’m constantly improving my skills through real-world projects
-                focused on clean code, performance, and practical impact.
+                My journey is driven by building modern, scalable, and user-focused web applications.
+              </p>
+              <p className="leading-relaxed mb-4 text-sm" style={{ color:'var(--text-secondary)' }}>
+                I enjoy transforming ideas into functional digital products, combining front-end creativity with solid back-end logic.
+              </p>
+              <p className="leading-relaxed text-sm" style={{ color:'var(--text-secondary)' }}>
+                Curious, detail-oriented, and motivated by continuous growth — always improving through real-world projects.
               </p>
             </div>
           </motion.div>
 
-          {/* TIMELINE */}
-          <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="overflow-hidden rounded-2xl"
-          >
-            <section className="py-16 px-6">
-              <div className="max-w-5xl mx-auto">
-
-                {/* Timeline Header */}
-                <div className="flex items-center gap-3 mb-12">
-                  <Calendar className="text-emerald-600 dark:text-emerald-400" size={28} />
-                  <h2 className="text-3xl font-bold text-slate-900 dark:text-white">
-                    Academic Timeline
-                  </h2>
-                </div>
-
-                {/* Timeline */}
-                <div className="relative border-l border-slate-300 dark:border-slate-700 pl-10 space-y-10">
-
-                  {/* ITEM 1 */}
-                  <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5 }}
-                    className="relative"
-                  >
-                    <span className="absolute -left-[52px] top-4 w-5 h-5 rounded-full bg-emerald-500 border-4 border-white dark:border-slate-950" />
-
-                    <div className="bg-white dark:bg-slate-800/70 border border-slate-200 dark:border-slate-700 rounded-2xl p-6 shadow-lg dark:shadow-slate-900/50 hover:shadow-xl hover:border-emerald-400/40 transition-all duration-300">
-                      <span className="text-emerald-600 dark:text-emerald-400 font-semibold">
-                        Present
-                      </span>
-
-                      <h3 className="text-xl font-semibold text-slate-900 dark:text-white mt-2 mb-2">
-                        Licence Professionnelle en Développement Informatique
-                      </h3>
-
-                      <p className="text-slate-600 dark:text-slate-400 text-sm mb-2">
-                        ISMAGI Agdal
-                      </p>
-
-                      <div className="flex items-center gap-2 text-slate-500 dark:text-slate-400 text-sm">
-                        <MapPin size={16} />
-                        Rabat
-                      </div>
+          <motion.div initial={{ opacity:0, x:40 }} whileInView={{ opacity:1, x:0 }}
+            transition={{ duration:0.6 }} viewport={{ once:true }}>
+            <div className="flex items-center gap-3 mb-8">
+              <Calendar style={{ color:'var(--accent)' }} size={22} />
+              <h3 className="text-xl font-bold" style={{ color:'var(--text-primary)' }}>Academic Timeline</h3>
+            </div>
+            <div className="relative pl-8" style={{ borderLeft:'1px solid var(--border-accent)' }}>
+              {timeline.map((t, i) => (
+                <motion.div key={i} initial={{ opacity:0, y:20 }} whileInView={{ opacity:1, y:0 }}
+                  transition={{ duration:0.5, delay:i*0.1 }} viewport={{ once:true }} className="relative mb-8">
+                  <div className="timeline-dot absolute -left-[41px] top-4 w-4 h-4 rounded-sm"
+                    style={{ background:'var(--accent)', border:'2px solid var(--bg-secondary)' }} />
+                  <div className="card-terminal rounded-sm p-5">
+                    <span className="tag-pill mb-2 inline-block">{t.period}</span>
+                    <h4 className="text-sm font-bold mt-2 mb-1" style={{ color:'var(--text-primary)' }}>{t.title}</h4>
+                    <p className="text-xs mb-2" style={{ color:'var(--text-secondary)' }}>{t.school}</p>
+                    <div className="flex items-center gap-1 text-xs" style={{ color:'var(--text-muted)' }}>
+                      <MapPin size={11} /><span>{t.location}</span>
                     </div>
-                  </motion.div>
-
-                  {/* ITEM 2 */}
-                  <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.1 }}
-                    className="relative"
-                  >
-                    <span className="absolute -left-[52px] top-4 w-5 h-5 rounded-full bg-emerald-500 border-4 border-white dark:border-slate-950" />
-
-                    <div className="bg-white dark:bg-slate-800/70 border border-slate-200 dark:border-slate-700 rounded-2xl p-6 shadow-lg dark:shadow-slate-900/50 hover:shadow-xl hover:border-emerald-400/40 transition-all duration-300">
-                      <span className="text-emerald-600 dark:text-emerald-400 font-semibold">
-                        2021 – 2023
-                      </span>
-
-                      <h3 className="text-xl font-semibold text-slate-900 dark:text-white mt-2 mb-2">
-                        Diplôme Technicien Spécialisé en Développement Digital
-                      </h3>
-
-                      <p className="text-slate-600 dark:text-slate-400 text-sm mb-2">
-                        ISTA
-                      </p>
-
-                      <div className="flex items-center gap-2 text-slate-500 dark:text-slate-400 text-sm">
-                        <MapPin size={16} />
-                        Rabat
-                      </div>
-                    </div>
-                  </motion.div>
-
-                  {/* ITEM 3 */}
-                  <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.2 }}
-                    className="relative"
-                  >
-                    <span className="absolute -left-[52px] top-4 w-5 h-5 rounded-full bg-emerald-500 border-4 border-white dark:border-slate-950" />
-
-                    <div className="bg-white dark:bg-slate-800/70 border border-slate-200 dark:border-slate-700 rounded-2xl p-6 shadow-lg dark:shadow-slate-900/50 hover:shadow-xl hover:border-emerald-400/40 transition-all duration-300">
-                      <span className="text-emerald-600 dark:text-emerald-400 font-semibold">
-                        2020 – 2021
-                      </span>
-
-                      <h3 className="text-xl font-semibold text-slate-900 dark:text-white mt-2 mb-2">
-                        Baccalauréat - Sciences de la Vie et de la Terre
-                      </h3>
-
-                      <p className="text-slate-600 dark:text-slate-400 text-sm mb-2">
-                        Lycée Ibn El Khatib
-                      </p>
-
-                      <div className="flex items-center gap-2 text-slate-500 dark:text-slate-400 text-sm">
-                        <MapPin size={16} />
-                        Salé
-                      </div>
-                    </div>
-                  </motion.div>
-
-                </div>
-              </div>
-            </section>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
           </motion.div>
         </div>
 
-        {/* HIGHLIGHTS */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="grid md:grid-cols-2 lg:grid-cols-4 gap-6"
-        >
-          {highlights.map((item, index) => (
-            <AnimatedCard key={item.title} delay={index * 0.1} className="p-8 hover:shadow-2xl">
-              <motion.div whileHover={{ scale: 1.1 }}>
-                <item.icon className="text-emerald-600 dark:text-emerald-400 mb-4" size={40} />
-              </motion.div>
-              <h4 className="text-xl font-semibold text-slate-900 dark:text-white mb-2">
-                {item.title}
-              </h4>
-              <p className="text-slate-600 dark:text-slate-400">
-                {item.description}
-              </p>
-            </AnimatedCard>
+        <motion.div initial={{ opacity:0 }} whileInView={{ opacity:1 }}
+          transition={{ duration:0.6 }} viewport={{ once:true }}
+          className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+          {highlights.map((h, i) => (
+            <motion.div key={h.title} initial={{ opacity:0, y:20 }} whileInView={{ opacity:1, y:0 }}
+              transition={{ delay:i*0.1 }} viewport={{ once:true }}
+              whileHover={{ scale:1.03 }} className="card-terminal rounded-sm p-6 text-center">
+              <div className="w-12 h-12 rounded-sm flex items-center justify-center mx-auto mb-4"
+                style={{ background:'rgba(0,255,136,0.07)', border:'1px solid var(--border-accent)' }}>
+                <h.icon style={{ color:'var(--accent)' }} size={24} />
+              </div>
+              <h4 className="font-bold mb-1 text-sm" style={{ color:'var(--text-primary)' }}>{h.title}</h4>
+              <p className="text-xs" style={{ color:'var(--text-muted)' }}>{h.description}</p>
+            </motion.div>
           ))}
         </motion.div>
-
       </div>
     </section>
   );
